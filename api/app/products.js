@@ -7,12 +7,13 @@ const Product = require('../models/Product');
 const auth = require("../middleware/auth");
 
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
+  destination: (req, image, cb) => {
+    console.log(config.uploadPath)
     cb(null, config.uploadPath);
   },
-  filename: (req, file, cb) => {
-    cb(null, nanoid() + path.extname(file.originalname));
-  }
+  filename: (req, image, cb) => {
+    cb(null, nanoid() + path.extname(image.originalname));
+  },
 });
 
 const upload = multer({storage});
@@ -56,7 +57,8 @@ router.post('/', upload.single('file'), async (req, res) => {
   const productData = {
     title: req.body.title,
     price: req.body.price,
-    category: req.body.category
+    category: req.body.category,
+    userId: req.body.userId
   };
 
   if (req.file) {
@@ -66,13 +68,13 @@ router.post('/', upload.single('file'), async (req, res) => {
   if (req.body.description) {
     productData.description = req.body.description;
   }
-
-  const product = new Product(productData);
-
   try {
+    const product = new Product(productData);
+
     await product.save();
     res.send(product);
-  } catch {
+  } catch (e) {
+    console.log(e)
     res.status(400).send({error: 'Data not valid'});
   }
 });

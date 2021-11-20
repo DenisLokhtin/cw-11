@@ -13,12 +13,12 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  if (!req.body.title) {
+  if (!req.body.category) {
     return res.status(400).send('Data not valid');
   }
 
   const categoryData = {
-    title: req.body.title,
+    category: req.body.category
   };
 
   const category = new Category(categoryData);
@@ -28,6 +28,7 @@ router.post('/', async (req, res) => {
     res.send(category);
   } catch (e) {
     res.status(400).send(e);
+    console.log(e)
   }
 });
 

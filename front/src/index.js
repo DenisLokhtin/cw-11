@@ -7,10 +7,22 @@ import {ToastContainer} from "react-toastify";
 import history from "./history";
 import App from './App';
 
+import 'react-toastify/dist/ReactToastify.css';
+
 const app = (
     <Provider store={store}>
         <BrowserRouter history={history}>
-            <ToastContainer/>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <App/>
         </BrowserRouter>
     </Provider>

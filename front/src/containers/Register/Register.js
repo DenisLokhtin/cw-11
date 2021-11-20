@@ -24,11 +24,11 @@ const Register = () => {
 
     return (
         <div>
-            <form className="authorization">
+            <form onSubmit={submitFormHandler} className="authorization">
                 <h2>Register</h2>
                 <input name="username" value={user.username} onChange={e => (inputChangeHandler(e))} type="text" placeholder="Username"/>
-                <input name="password" value={user.username} onChange={e => (inputChangeHandler(e))} type="password" placeholder="Password"/>
-                <button onSubmit={submitFormHandler}>Send</button>
+                <input name="password" value={user.password} onChange={e => (inputChangeHandler(e))} type="password" placeholder="Password"/>
+                <button>Send</button>
             </form>
         </div>
     );

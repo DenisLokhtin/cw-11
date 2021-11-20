@@ -9,18 +9,18 @@ import React from "react";
 import './App.css';
 
 function App() {
-  return (
-      <div>
-        <Toolbar/>
-        <Switch>
-          <Route path="/" exact component={Products}/>
-          <Route path="/posts/new" exact component={NewPost}/>
-          <Route path="/posts/:id" exact component={Product}/>
-          <Route path="/register" component={Register}/>
-          <Route path="/login" component={Login}/>
-        </Switch>
-      </div>
-  );
+    return (
+        <div>
+            <Toolbar/>
+            <Switch>
+                <Route path="/" exact component={Products}/>
+                <Route path="/posts/new" exact component={NewPost}/>
+                <Route path="/posts/:id" exact component={Product}/>
+                <Route path="/register" component={Register}/>
+                <Route path="/login" component={Login}/>
+            </Switch>
+        </div>
+    );
 }
 
 export default App;

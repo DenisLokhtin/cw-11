@@ -9,7 +9,7 @@ const config = require('./config');
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use(express.static('public'));
+app.use('/public', express.static('public'));
 
 const port = 8000;
 

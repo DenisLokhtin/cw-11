@@ -15,8 +15,8 @@ const ProductCard = (props) => {
         <div className="card">
            <div className="image"><img src={image()} alt="img"/></div>
             <div className="info">
-                <p className="title">Item</p>
-                <p className="price">300 som</p>
+                <p className="title">{props.title}</p>
+                <p className="price">{props.price} Сом</p>
             </div>
         </div>
     );

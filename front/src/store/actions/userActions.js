@@ -22,9 +22,27 @@ export const registerUser = userData => {
     return async dispatch => {
         try {
             const response = await axiosApi.post('/users', userData);
-            dispatch(registerUserSuccess(response.data));
+            dispatch(registerUserSuccess(response.data.username));
             dispatch(historyPush('/'));
+            toast.success('🦄register successfully!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                progress: undefined,
+            });
         } catch (error) {
+            toast.error('🦄error!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                progress: undefined,
+            });
             if (error.response && error.response.data) {
                 dispatch(registerUserFailure(error.response.data));
             } else {
@@ -41,8 +59,25 @@ export const loginUser = userData => {
             const response = await axiosApi.post('/users/sessions', userData);
             dispatch(loginUserSuccess(response.data.user.username));
             dispatch(historyPush('/'));
-            toast.success('Login successful');
+            toast.success('🦄login successfully!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                progress: undefined,
+            });
         } catch (error) {
+            toast.error('🦄incorrect!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                progress: undefined,
+            });
             if (error.response && error.response.data) {
                 dispatch(loginUserFailure(error.response.data));
             } else {
@@ -57,5 +92,14 @@ export const logoutUser = () => {
         await axiosApi.delete('/users/sessions');
         dispatch({type: LOGOUT_USER});
         dispatch(historyPush('/'));
+        toast.success('🦄Logout!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+        });
     };
 };
