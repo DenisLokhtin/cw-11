@@ -17,3 +17,8 @@
 .newPost button {
     font-size: 22px;
 }
+
+.newPost select {
+    font-size: 20px;
+    margin-bottom: 20px;
+}

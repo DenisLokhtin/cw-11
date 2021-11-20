@@ -21,7 +21,7 @@ const Product = (props) => {
                         <img src={'http://localhost:8000/public/uploads/' + product.file} alt="img"/>
                     </div>
                     <p>{product.price} Cом</p>
-                </div>  
+                </div>
             )
         }
         return <div></div>

@@ -10,7 +10,7 @@ const UserMenu = () => {
 
     return (
         <div>
-            Hello, <b>{user.username}</b>! <Link to="/posts/new" className="link">Add new post</Link> or <span onClick={() => dispatch(logoutUser())} className="link">Logout</span>
+            Hello, <b>{user}</b>! <Link to="/products/new" className="link">Add new post</Link> or <span onClick={() => dispatch(logoutUser())} className="link">Logout</span>
         </div>
     );
 };

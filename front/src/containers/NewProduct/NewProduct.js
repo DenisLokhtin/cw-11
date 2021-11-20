@@ -1,17 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import './NewPost.css'
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {createProduct} from "../../store/actions/productsActions";
+import {fetchCategories} from "../../store/actions/categoriesActions";
 
 const NewProduct = ({history}) => {
     const dispatch = useDispatch();
 
     const [state, setState] = useState({
         title: "",
-        userId: "",
+        category: "",
+        price: "",
         description: "",
-        image: null,
-        date: "",
+        file: null,
+        userId: ""
     });
 
     const submitFormHandler = async e => {
@@ -37,13 +39,30 @@ const NewProduct = ({history}) => {
         });
     };
 
+    const categories = useSelector(state => state.categories.categories);
+
+    useEffect(() => {
+        dispatch(fetchCategories());
+    }, [dispatch]);
+
+    const printCategories = () => {
+        return categories.map(categories => {
+            return (
+                <option key={categories._id}>{categories.category}</option>
+            )
+        })
+    }
+
     return (
         <div>
             <form onSubmit={submitFormHandler} className="newPost">
                 <h2>Add new post</h2>
-                <input name="title" type="text" placeholder="Title"/>
-                <textarea name="description" cols="30" rows="10" placeholder="Description">d</textarea>
-                <input type="file"/>
+                <input value={state.title} onChange={e => (inputChangeHandler(e))} name="title" type="text" placeholder="Title"/>
+                <textarea value={state.description} onChange={e => (inputChangeHandler(e))} name="description" cols="30" rows="10" placeholder="Description">d</textarea>
+                <input value={state.file} onChange={e => (inputChangeHandler(e))} name="file" type="file"/>
+                <select value={state.category} onChange={e => (inputChangeHandler(e))} name="category">
+                    {printCategories()}
+                </select>
                 <button>Submit</button>
             </form>
         </div>
