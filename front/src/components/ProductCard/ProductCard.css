@@ -1,0 +1,30 @@
+.card {
+    border: 2px solid black;
+    width: 350px;
+    height: 450px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+.image img {
+    width: 338px;
+    height: 338px;
+    border: 1px solid black;
+    margin: 5px;
+    border-radius: 3px;
+}
+
+.info {
+    padding: 0 10px;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.price {
+    font-size: 25px;
+}

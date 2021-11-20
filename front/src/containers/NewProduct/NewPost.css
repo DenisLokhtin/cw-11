@@ -1,0 +1,19 @@
+.newPost {
+    margin: 0 10%;
+    display: flex;
+    flex-direction: column;
+}
+
+.newPost input {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.newPost textarea {
+ font-size: 18px;
+}
+
+.newPost button {
+    font-size: 22px;
+}

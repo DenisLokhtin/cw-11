@@ -10,7 +10,7 @@ const Toolbar = () => {
 
     const menu = () => {
         if (user) {
-            return  <UserMenu user={user}/>
+            return  <UserMenu/>
         } else {
             return <AnonymousMenu/>
         }
@@ -20,7 +20,7 @@ const Toolbar = () => {
         <div className="border">
             <div className="toolbar">
                 <div className="header">
-                    <Link to="/">Forum</Link>
+                    <Link to="/">Market</Link>
                 </div>
                 <div>
                     {menu()}

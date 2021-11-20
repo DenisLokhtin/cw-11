@@ -1,0 +1,7 @@
+.products {
+    margin: 20px 10%;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1500px;
+}
+

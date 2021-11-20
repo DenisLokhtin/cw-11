@@ -1,0 +1,17 @@
+*{
+    font-family: sans-serif;
+}
+
+.link {
+    user-select: none;
+    cursor: pointer;
+    color: blue;
+    font-weight: 600;
+    text-decoration: underline;
+    transition: 100ms;
+}
+
+.link:hover {
+    color: #000084;
+    text-decoration: none;
+}
