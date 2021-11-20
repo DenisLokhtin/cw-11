@@ -1,0 +1,9 @@
+.product {
+    margin: 0 10%;
+    font-size: 25px;
+}
+
+.flex-cont img {
+    width: 500px;
+    height: 400px;
+}

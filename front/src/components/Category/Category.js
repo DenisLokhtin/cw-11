@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import ProductCard from "../ProductCard/ProductCard";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchCategories} from "../../store/actions/categoriesActions";
 
@@ -14,7 +13,7 @@ const Category = () => {
     const printCategories = () => {
         return categories.map(categories => {
             return (
-                <p className="link">{categories.category}</p>
+                <p className="link" key={categories._id}>{categories.category}</p>
             )
         })
     }

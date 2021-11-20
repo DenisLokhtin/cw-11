@@ -5,9 +5,13 @@ import {fetchProducts} from "../../store/actions/productsActions";
 import './Products.css';
 import Category from "../../components/Category/Category";
 
-const Products = () => {
+const Products = (props) => {
     const dispatch = useDispatch();
     const products = useSelector(state => state.products.products);
+
+    const toProduct = (id) => {
+        props.history.push('/products/' + id)
+    }
 
     useEffect(() => {
         dispatch(fetchProducts());
@@ -22,6 +26,7 @@ const Products = () => {
                     price={product.price}
                     title={product.title}
                     image={product.file}
+                    click={() => toProduct(product._id)}
                 />
             )
         })

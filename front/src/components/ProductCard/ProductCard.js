@@ -12,7 +12,7 @@ const ProductCard = (props) => {
     }
 
     return (
-        <div className="card">
+        <div className="card" onClick={() => props.click(props.id)}>
            <div className="image"><img src={image()} alt="img"/></div>
             <div className="info">
                 <p className="title">{props.title}</p>

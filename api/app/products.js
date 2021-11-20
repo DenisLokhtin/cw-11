@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
       query.category = req.query.category;
     }
 
-    const products = await Product.find(query).populate('category', 'title description');
+    const products = await Product.find(query);
     res.send(products);
   } catch (e) {
     res.sendStatus(500);
@@ -37,7 +37,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id);
+    const product = await Product.findById(req.params.id).populate('category', 'category').exec();
 
     if (product) {
       res.send(product);

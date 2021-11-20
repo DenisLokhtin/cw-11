@@ -50,6 +50,7 @@ export const fetchProducts = () => {
 };
 
 export const fetchProduct = id => {
+    console.log(id)
     return async dispatch => {
         try {
             dispatch(fetchProductRequest());
